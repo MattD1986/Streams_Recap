@@ -53,6 +53,11 @@ public class App {
             .sorted(comparing(book -> book.getTitle()))
             .forEach(System.out::println);
 
+    //omgekeerd gesorteerd
+    bookList.stream()
+            .filter(book -> book.getAuthorLastName().startsWith("C"))
+            .sorted(comparing(Book::getTitle).reversed())
+            .forEach(System.out::println);
 
     System.out.println("--Amount of books where author first name equals 3 characters");
     List<Book> amountOfBooks = bookList.stream()
